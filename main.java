@@ -1,55 +1,41 @@
 /*
  * TODO:
- * give user instructions
- * countdown from 5
- * give two tickers
- * give countdown from 5
- * within time user has to pick which stock is higher 
- * tell if user is right or wrong
- * then repeat
+ * Stock Simulator
+ * user receives a certain amount of starter money
+ * with this money stocks can be invested in
+ * 
  */
 package intro;
 
 import java.awt.Color;
-import java.util.Random;
 import java.util.Scanner;
 
 import org.dalton.DaltonDraw;
 import org.dalton.DaltonStock;
 import org.dalton.DaltonWii;
 
-public class stockGameCPK {
 
+public class stockSim {
 
 	public static void main(String[] args) {
-	
-		Scanner input = new Scanner(System.in);
+
+		//declare variables
+		String input =  "";
 		String choice = "";
-		String potato = "";
-		DaltonStock apple = new DaltonStock("AAPL");
-		DaltonStock microsoft = new DaltonStock("MSFT");
-		DaltonWii mote = new DaltonWii("002147F07A31");
-		System.out.println(apple.lastprice);
-		System.out.println("Type in a stock you wish to look up:");
-		choice = input.nextLine();
 		
-		DaltonStock userStock = new DaltonStock(choice);
-		
-		System.out.println("The current price of" + choice + "is " + userStock + ".");
-
-
+		//set starting money
+		int money = 50000;
 		DaltonDraw frame = new DaltonDraw();
+		DaltonWii mote = new DaltonWii("002147EE2B3E");
 
-
-
-		while (true) {
-			frame.clear();
-			//display two stocks
-			frame.drawString("Apple", 100, 100, 100, Color.red);
-			frame.drawString("Microsoft", 880, 100, 100, Color.red);
-
-			potato = mote.next(); //get input
-			frame.drawString(potato, 550, 500, 100, Color.red);
+		System.out.println("Hello. This is a test.");
+		while(true) {
+			frame.drawString("Welcome to the Stock Simulator 3000", 350, 100, 50, Color.red);
+			frame.drawString("Buy a Stock", 100, 300, 50, Color.blue);
+			frame.drawEllipse(10, 10, 100, 400, 0, Color.MAGENTA);
+			frame.render();
+			input = mote.next(); //get input
+			frame.drawString(input, 550, 500, 100, Color.red);
 
 
 
@@ -60,6 +46,9 @@ public class stockGameCPK {
 				frame.render();
 			}
 		}
+
+
+
 	}
 
 }
