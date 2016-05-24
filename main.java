@@ -28,11 +28,6 @@ public class stockSim {
 		String input =  "";
 		String choice = "";
 		
-		String potato = "Hello. To the World.";
-		byte data[] = s.getBytes();
-		Path p = Paths.get("./logfile.txt");
-		
-		
 		//set starting money
 		int money = 50000;
 		
