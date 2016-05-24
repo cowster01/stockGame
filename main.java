@@ -77,10 +77,11 @@ public class stockSim {
 						e.printStackTrace();
 					}
 				}
+				//if user swipes right with mote
 				if(input.equals("right")) {
 					frame.clear();
 				
-					//pull txt file with stored data and read it
+					//pulls txt file with stored data and reads it
 					FileReader reader = new FileReader("portfolio.txt");
 					BufferedReader bufferedreader = new BufferedReader(reader);
 					
@@ -95,6 +96,7 @@ public class stockSim {
 					e.printStackTrace();
 				}
 				frame.render();
+				
 			}
 		}
 
