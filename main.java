@@ -3,7 +3,7 @@
  * Stock Simulator
  * user receives a certain amount of starter money
  * with this money stocks can be invested in
- * 
+ * @Cowster01 - create the code that asks the user how many shares they wish to buy
  */
 package intro;
 
