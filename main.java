@@ -49,7 +49,7 @@ public class stockSim {
 			
 			//NOTE: use AAPL stock only for now
 			frame.drawString("Buy a Stock", 100, 300, 50, Color.blue);
-			frame.drawEllipse(10, 10, 100, 400, 0, Color.MAGENTA);
+			frame.drawString("Check your Portfolio", 400, 300, 50, Color.blue);			
 			frame.render();
 			input = mote.next(); //get input
 			frame.drawString(input, 550, 500, 100, Color.red);
@@ -80,6 +80,23 @@ public class stockSim {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
+				}
+				if(input.equals("right")) {
+					frame.clear();
+				
+					//pull txt file with stored data and read it
+					FileReader reader = new FileReader("portfolio.txt");
+					BufferedReader bufferedreader = new BufferedReader(reader);
+					
+					String line;
+					
+					while((line = bufferedReader.readLine()) != null) {
+						//show portfolio
+						frame.drawString(line, 550, 500, 100, Color.blue);
+					}
+					reader.close();
+				} catch(IOException e) {
+					e.printStackTrace();
 				}
 				frame.render();
 			}
