@@ -15,6 +15,11 @@ import org.dalton.DaltonDraw;
 import org.dalton.DaltonStock;
 import org.dalton.DaltonWii;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter; 
+import java.io.IOException;
+
 public class stockSim {
 
 	public static void main(String[] args) {
@@ -65,6 +70,16 @@ public class stockSim {
 					money = money - stock.lastPrice();
 					//displays current till
 					frame.drawString("You now own 1 share of Apple. Current till: $" + money + ".", 100, 300, 50, Color.blue);
+					//saves data of current till and amount of shares bought to data file
+					try {
+						FileWriter writer = new FileWriter("portfolio.txt", true);
+						writer.write(money);
+						writer.write("\n\r");
+						writer.write(stock.lastPrice());
+						writer.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 				frame.render();
 			}
