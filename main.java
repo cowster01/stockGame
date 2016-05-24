@@ -25,24 +25,42 @@ public class stockSim {
 		
 		//set starting money
 		int money = 50000;
+		
+		//declare frame and Wii remote
 		DaltonDraw frame = new DaltonDraw();
 		DaltonWii mote = new DaltonWii("002147EE2B3E");
 
-		System.out.println("Hello. This is a test.");
+		//intialize stock variables
+		DaltonStock apple = new DaltonStock("AAPL");
+		
+
 		while(true) {
 			frame.drawString("Welcome to the Stock Simulator 3000", 350, 100, 50, Color.red);
+			
+			//NOTE: use AAPL stock only for now
 			frame.drawString("Buy a Stock", 100, 300, 50, Color.blue);
 			frame.drawEllipse(10, 10, 100, 400, 0, Color.MAGENTA);
 			frame.render();
 			input = mote.next(); //get input
 			frame.drawString(input, 550, 500, 100, Color.red);
-
-
-
-
-			frame.render();
+			
+			//if user swipes left w/ mote
 			if (input.equals("left")) {
-				frame.drawString("YOU'RE RIGHT", 300, 300, 100, Color.blue);
+				//clears frame
+				frame.clear();
+				//ask user how many shares to buy - LATER FEATURE TO ADD
+				//frame.drawString("How many shares would you like to purchase?", 100, 300, 50, Color.blue);
+				
+				frame.drawString("Confirmation: You would like to buy 1 share of Apple?(press 'A' to confirm, 'B' to go back.", 550, 500, 100, Color.blue);
+				frame.render();
+				
+				input = mote.next();
+				if(input.equals("A")) {
+					frame.clear();
+					money = money - stock.lastPrice();
+					//displays current till
+					frame.drawString("You now own 1 share of Apple. Current till: $" + money + ".", 100, 300, 50, Color.blue);
+				}
 				frame.render();
 			}
 		}
