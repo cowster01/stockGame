@@ -7,13 +7,13 @@
  */
 package intro;
 
+//import APIs
 import java.awt.Color;
 import java.util.Scanner;
 
 import org.dalton.DaltonDraw;
 import org.dalton.DaltonStock;
 import org.dalton.DaltonWii;
-
 
 public class stockSim {
 
@@ -22,6 +22,11 @@ public class stockSim {
 		//declare variables
 		String input =  "";
 		String choice = "";
+		
+		String potato = "Hello. To the World.";
+		byte data[] = s.getBytes();
+		Path p = Paths.get("./logfile.txt");
+		
 		
 		//set starting money
 		int money = 50000;
