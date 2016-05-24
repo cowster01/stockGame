@@ -73,10 +73,11 @@ public class stockSim {
 					//saves data of current till and amount of shares bought to data file
 					try {
 						FileWriter writer = new FileWriter("portfolio.txt", true);
-						writer.write(money);
-						writer.write("\n\r");
-						writer.write(stock.lastPrice());
-						writer.close();
+						BufferedWriter bufferedWriter = new BufferedWriter(writer);
+						bufferedWriter.write(money);
+						bufferedWriter.write("\n\r");
+						bufferedWriter.write(stock.lastPrice());
+						bufferedWriter.close();
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
