@@ -46,7 +46,8 @@ public class stockSim {
 
 			//NOTE: use AAPL stock only for now
 			frame.drawString("Buy a Stock", 100, 300, 50, Color.blue);
-			frame.drawString("Check your Portfolio", 400, 300, 50, Color.blue);			
+			frame.drawString("Check your Portfolio", 400, 300, 50, Color.blue);
+			frame.drawString("Play Game", 250, 500, 50, Color.blue);
 			frame.render();
 			input = mote.next(); //get input
 			frame.drawString(input, 550, 500, 100, Color.red);
@@ -99,6 +100,9 @@ public class stockSim {
 					} catch(IOException e) {
 						e.printStackTrace();		
 					} 
+				}
+				if(input.equals("down")) {
+					frame.clear();
 				}
 
 
