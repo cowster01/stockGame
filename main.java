@@ -47,7 +47,7 @@ public class stockSim {
 			//NOTE: use AAPL stock only for now
 			frame.drawString("Buy a Stock", 100, 300, 50, Color.blue);
 			frame.drawString("Check your Portfolio", 400, 300, 50, Color.blue);
-			frame.drawString("Quit", 400, 800, 50, Color.blue);
+			frame.drawString("Play Game", 250, 500, 50, Color.blue);
 			frame.render();
 			input = mote.next(); //get input
 			frame.drawString(input, 550, 500, 100, Color.red);
@@ -101,12 +101,15 @@ public class stockSim {
 						e.printStackTrace();		
 					} 
 				}
-				
-				//if users swipes down
-				if (input.equals("DOWN")) {
-					//closes program
-					return;
+				//play game
+				if(input.equals("down")) {
+					frame.clear();
+					frame.drawString("For this game, you will be shown two different companies - one on the left, one on the right.", 100, 100, 50, Color.blue);
+					frame.drawString("You can either swipe left or swipe right to select your company.", 100, 200, 50, Color.blue);
+					frame.drawString(" The objective of the game is to choose the company with the higher stock price.", 100, 300, 50, Color.blue);
+					
 				}
+
 
 				frame.render();
 
